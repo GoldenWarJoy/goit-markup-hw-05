@@ -21,23 +21,6 @@
   --footer-social-links-bg: rgba(255, 255, 255, 0.1);
 }
 
-#icon-client-1 > path,
-#icon-client-2 > path,
-#icon-client-3 > path,
-#icon-client-4 > path,
-#icon-client-5 > path,
-#icon-client-6 > path,
-#icon-smartphone > path,
-#icon-envelope > path,
-#icon-instagram > path,
-#icon-facebook > path,
-#icon-linkedin > path,
-#icon-twitter > path {
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 h1 {
   margin: 0;
   padding: 0;
@@ -151,44 +134,37 @@ body {
 
 .header-icon {
   margin-right: 10px;
+  display: block;
+  fill: var(--our-team-member-position-text-color);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.phone-number > a,
 .header-mail > a {
   text-decoration: none;
 
   align-items: center;
   display: flex;
-  --color2: var(--our-team-member-position-text-color);
   color: var(--our-team-member-position-text-color);
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.phone-number a:focus,
+.phone-number a:hover,
 .header-mail a:focus,
 .header-mail a:hover {
   color: var(--primary-color);
-  --color2: var(--primary-color);
 }
 
-.phone-number {
-  color: var(--our-team-member-position-text-color);
-}
-
-.phone-number > a {
-  text-decoration: none;
-
-  align-items: center;
-  display: flex;
-  --color4: var(--our-team-member-position-text-color);
-  color: var(--our-team-member-position-text-color);
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.phone-number a:focus,
-.phone-number a:hover {
-  color: var(--primary-color);
-  --color4: var(--primary-color);
+.phone-number a:focus > svg,
+.phone-number a:hover > svg,
+.header-mail a:focus > svg,
+.header-mail a:hover > svg {
+  fill: var(--primary-color);
 }
 
 .section {
@@ -254,9 +230,7 @@ body {
 .card-set {
   margin: 0;
   display: flex;
-  /* Make a flex container multiline */
   flex-wrap: wrap;
-  /* Set gap between rows and columns */
   gap: 10px;
   padding: 0 0 94px 0;
   list-style: none;
@@ -363,23 +337,20 @@ body {
   padding: 0 0 30px 0;
 }
 
-.social-links > a {
-  --color1: var(--our-team-member-background-color);
-  --color2: var(--social-links-color);
-  transition-property: color;
+.social-links > a > svg {
+  display: block;
+  border-radius: 50%;
+  background-color: var(--background);
+  fill: var(--social-links-color);
+  transition-property: background-color fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-links > a > svg {
-  display: block;
-}
-
-.social-links > a:focus,
-.social-links > a:hover {
-  --color1: var(--primary-color);
-  --color2: var(--our-team-member-background-color);
-  cursor: pointer;
+.social-links > a:focus > svg,
+.social-links > a:hover > svg {
+  background-color: var(--primary-color);
+  fill: var(--background);
 }
 
 .main-div3-our-team-member {
@@ -432,33 +403,20 @@ body {
 
 .our-client {
   flex-basis: calc((100% - 150px) / 6);
-  background: var(--our-team-member-background-color);
+}
+
+.our-client > a > svg {
+  fill: var(--social-links-color);
   border: 1px solid var(--social-links-color);
+  background: var(--our-team-member-background-color);
   border-radius: 4px;
-  transition-property: border-color;
+  transition-property: border-color fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.our-client > a {
-  transition-property: var(--primary-color);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.our-client > a:hover {
-  --color1: var(--primary-color);
-}
-
-.our-client:focus {
-  border-color: var(--primary-color);
-}
-
-.our-client:focus > a {
-  --color1: var(--primary-color);
-}
-
-.our-client:hover {
+.our-client > a:focus > svg,
+.our-client > a:hover > svg {
+  fill: var(--primary-color);
   border-color: var(--primary-color);
 }
 
@@ -574,14 +532,18 @@ body {
   gap: 10px;
 }
 
-.footer-social-links > a {
-  --color1: var(--footer-social-links-bg);
-  --color2: var(--background);
+.footer-social-links > a > svg {
+  display: block;
+  border-radius: 50%;
+  fill: var(--background);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-social-links > a:focus,
-.footer-social-links > a:hover {
-  --color1: var(--primary-color);
+.footer-social-links > a:focus > svg,
+.footer-social-links > a:hover > svg {
+  background-color: var(--primary-color);
   cursor: pointer;
 }
 
@@ -757,4 +719,18 @@ body {
 
 .overlay.is-hidden > .modal {
   transform: scale(0) translateX(-50%) translateY(-50%);
+}
+
+.blabla svg {
+  background-color: green;
+  fill: red;
+  border-radius: 50%;
+  transition-property: fill background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blabla:hover svg {
+  background-color: yellow;
+  fill: blue;
 }
